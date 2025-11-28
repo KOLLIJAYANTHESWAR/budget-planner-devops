@@ -1,0 +1,15 @@
+---
+- name: Copy Kubernetes files
+  copy:
+    src: "../../k8s/"
+    dest: "/opt/budget-k8s/"
+    mode: 0644
+
+- name: Deploy MySQL
+  command: kubectl apply -f /opt/budget-k8s/mysql-deployment.yaml
+
+- name: Deploy Backend
+  command: kubectl apply -f /opt/budget-k8s/backend-deployment.yaml
+
+- name: Deploy Frontend
+  command: kubectl apply -f /opt/budget-k8s/frontend-deployment.yaml

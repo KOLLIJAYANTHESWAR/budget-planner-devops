@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: budget-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: budget-backend
+  template:
+    metadata:
+      labels:
+        app: budget-backend
+    spec:
+      containers:
+        - name: budget-backend
+          image: kollijayanth2006/budget-backend:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/budget?useSSL=false&allowPublicKeyRetrieval=true"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "1973"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: budget-backend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8081
+      targetPort: 8081
+  selector:
+    app: budget-backend

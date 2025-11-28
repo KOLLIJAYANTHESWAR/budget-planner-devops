@@ -1,0 +1,97 @@
+# ===========================
+# Global OS / Editor Ignored
+# ===========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Windows junk
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# ===========================
+# Node / React (Frontend)
+# ===========================
+budget-frontend/node_modules/
+budget-frontend/dist/
+budget-frontend/.env
+budget-frontend/.npmrc
+
+# Vite cache
+budget-frontend/.vite/
+budget-frontend/.cache/
+
+# ===========================
+# Java / Spring Boot (Backend)
+# ===========================
+BudgetPlannerr/target/
+BudgetPlannerr/.mvn/
+BudgetPlannerr/*.log
+BudgetPlannerr/*.jar
+BudgetPlannerr/*.war
+
+# Spring Boot environment files
+BudgetPlannerr/src/main/resources/application.properties
+BudgetPlannerr/src/main/resources/application.yml
+BudgetPlannerr/src/main/resources/application-dev.yml
+BudgetPlannerr/src/main/resources/application-prod.yml
+
+# ===========================
+# Kubernetes
+# ===========================
+k8s/*.backup
+k8s/*.tmp
+
+# ===========================
+# Ansible
+# ===========================
+ansible/ansible.cfg
+ansible/*.retry
+
+# ===========================
+# Docker
+# ===========================
+*.dockerignore
+**/tmp/
+**/overlay2/
+
+# ===========================
+# Misc
+# ===========================
+*.class
+*.swp
+*.swo
+# Ignore Eclipse metadata
+.metadata/
+**/.metadata/
+
+# Ignore all .git folders inside subprojects
+BudgetPlannerr/.git/
+budget-frontend/.git/
+
+# Ignore node_modules
+budget-frontend/node_modules/
+budget-frontend/dist/
+
+# Spring Boot target folder
+BudgetPlannerr/target/
+
+# Ignore environment files
+*.env
+
+# Ignore logs
+*.log
+
+# IDE folders
+.idea/
+.vscode/
+
+# System files
+Thumbs.db
+.DS_Store
+desktop.ini

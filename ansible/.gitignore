@@ -1,0 +1,13 @@
+# Ansible temporary files
+*.retry
+
+# Sensitive files
+*.vault
+*.secret
+
+# Roles cache
+roles/*/files/
+roles/*/templates/
+
+# Ignore kube configs inside ansible
+.kube/

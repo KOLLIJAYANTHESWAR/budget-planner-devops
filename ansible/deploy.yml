@@ -1,0 +1,21 @@
+- name: Deploy Budget App to Kubernetes
+  hosts: localhost
+  tasks:
+
+    - name: Apply MySQL manifests
+      command: kubectl apply -f /workspace/k8s/mysql-deployment.yaml
+
+    - name: Apply Backend Deployment
+      command: kubectl apply -f /workspace/k8s/backend-deployment.yaml
+
+    - name: Apply Backend Service
+      command: kubectl apply -f /workspace/k8s/backend-service.yaml
+
+    - name: Apply Frontend Deployment
+      command: kubectl apply -f /workspace/k8s/frontend-deployment.yaml
+
+    - name: Apply Frontend Service
+      command: kubectl apply -f /workspace/k8s/frontend-service.yaml
+
+    - name: Apply Backend NodePort
+      command: kubectl apply -f /workspace/k8s/backend-nodeport.yaml

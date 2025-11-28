@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: budget-frontend
+spec:
+  selector:
+    app: budget-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  type: NodePort

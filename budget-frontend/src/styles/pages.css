@@ -1,0 +1,261 @@
+/* src/styles/pages.css */
+
+/* ----------------------------
+   AUTH PAGES (Login / Register)
+----------------------------- */
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: var(--spacing-xl);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: var(--spacing-xl);
+    animation: fadeIn 0.35s ease-out;
+}
+
+.auth-card h2 {
+    margin-bottom: var(--spacing-xl);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.auth-footer {
+    margin-top: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.auth-footer a {
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ----------------------------
+   DASHBOARD PAGE
+----------------------------- */
+
+.dashboard-page .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: var(--spacing-xl);
+}
+
+.dashboard-page .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-page .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.dashboard-page .recent-expenses {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* ----------------------------
+   BUDGET PAGE
+----------------------------- */
+
+.budget-page .budget-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-lg);
+}
+
+.budget-page .budget-setup-form,
+.budget-page .budget-display {
+    padding: var(--spacing-lg);
+}
+
+.budget-page .budget-display .card {
+    min-height: 220px;
+}
+
+/* ----------------------------
+   EXPENSES PAGE
+----------------------------- */
+
+.expenses-page .grid-2-1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-lg);
+}
+
+.expenses-page .expense-summary {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.expenses-page .summary-item {
+    padding: var(--spacing-md);
+    min-width: 180px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-card-bg);
+}
+
+.expenses-page .month-filter {
+    width: 170px;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ----------------------------
+   RESPONSIVENESS
+----------------------------- */
+
+@media (max-width: 1024px) {
+    .dashboard-page .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-page .grid-3,
+    .dashboard-page .grid-2,
+    .budget-page .budget-grid,
+    .expenses-page .grid-2-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-page .recent-expenses {
+        max-height: 300px;
+    }
+
+    .expenses-page .expense-summary {
+        flex-direction: column;
+    }
+
+    .expense-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* ----------------------------
+   ANIMATIONS
+----------------------------- */
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+/* WRAPPER (Makes footer stay at bottom but content scrolls) */
+/* LANDING PAGE STYLES */
+
+.landing-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* HERO */
+.landing-hero {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.landing-title {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.landing-subtitle {
+    max-width: 600px;
+    margin: 15px auto 30px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.landing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.landing-small-text {
+    margin-top: 20px;
+    opacity: 0.85;
+    font-size: 0.9rem;
+}
+
+/* FEATURES */
+.landing-features {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* ABOUT */
+.landing-about {
+    padding: 70px 20px;
+    text-align: center;
+    background: #f9fafb;
+}
+
+.about-text {
+    max-width: 600px;
+    margin: 20px auto 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.about-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+/* FOOTER */
+.landing-footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    background: #f3f4f6;
+    font-size: 0.9rem;
+}
