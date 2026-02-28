@@ -1,78 +1,112 @@
-                                    📘 Budget Planner – Full-Stack DevOps Project
+# 📘 Budget Planner – Full-Stack DevOps Project
 
-A complete full-stack Budget Planner application built using:
+A complete Full-Stack Budget Planner application built using **React (Vite), Spring Boot (Java 21), MySQL, Docker, Kubernetes, GitHub Actions, and Ansible**.
 
-React (Vite) – Frontend
+This project demonstrates a complete modern DevOps + Full-Stack workflow from development to automated Kubernetes deployment.
 
-Spring Boot (Java 21) – Backend
+---
 
-MySQL – Database
+## 📌 Project Overview
 
-JWT Authentication & Role-Based Access
+Budget Planner is a secure, containerized, production-ready application designed to:
 
-Docker & Docker Hub – Containerization
+- Manage monthly budgets
+- Track user expenses
+- Provide secure JWT authentication
+- Support CI/CD automation
+- Deploy on Kubernetes using Ansible
 
-GitHub Actions CI/CD – Automated build & push
+---
 
-Kubernetes (Docker Desktop) – Deployment
+## 🏗️ Architecture
 
-Ansible – Automated Kubernetes Deployment
+```
+User → React Frontend → Spring Boot Backend → MySQL
+                                ↓
+                        Docker Containers
+                                ↓
+                         Kubernetes Cluster
+                                ↓
+                         Ansible Automation
+```
 
-This project showcases modern DevOps + Full-Stack workflow end-to-end.
+---
 
-🚀 Features
-🔐 Authentication
+## 🚀 Features
 
-✔ JWT Login / Register
-✔ Secure Password Hashing (BCrypt)
-✔ Stateless Authentication
-✔ CORS Configured for Kubernetes
+### 🔐 Authentication
 
-💼 Budget Management
+- JWT-based Login / Registration
+- Secure password hashing (BCrypt)
+- Stateless authentication
+- CORS configured for Kubernetes deployment
+- Unique username & email constraints
 
-✔ Create, update, delete budgets
-✔ Track spent amount
-✔ Monthly budget system
+---
 
-🧾 Expense Management
+### 💼 Budget Management
 
-✔ Add & delete expenses
-✔ Category, amount, description, date
-✔ Associated with budget + user
+- Create monthly budgets
+- Update & delete budgets
+- Track total spent amount
+- Associate budgets per user
 
-🧑‍💼 User Features
+---
 
-✔ Each user sees only their own data
-✔ Email & username unique constraints
+### 🧾 Expense Management
 
-⚙ DevOps Highlights
+- Add & delete expenses
+- Expense category, amount, description, date
+- Linked to specific budget
+- User-isolated data access
 
-✔ Dockerized Backend & Frontend
-✔ GitHub Actions CI/CD pipeline
-✔ Kubernetes Deployments + Services
-✔ NodePort exposure
-✔ Ansible Automated Deployment
+---
 
-🏗 Tech Stack
-Frontend:
-React (Vite)
-Axios
-Context API
+### 🧑‍💼 User Features
 
-Backend:
-Spring Boot 3
-Spring Security + JWT
-JPA + Hibernate
-MySQL
+- Each user sees only their own budgets & expenses
+- Secure role-based access
+- Database-level constraints for data integrity
 
-DevOps:
-Docker
-Docker Hub
-GitHub Actions Workflows
-Kubernetes (Deployments, Services, PVC)
-Ansible Automation
+---
 
-📦 Project Structure
+## ⚙ DevOps Highlights
+
+- Dockerized Backend & Frontend
+- Docker Hub image hosting
+- GitHub Actions CI/CD pipeline
+- Kubernetes Deployments & Services
+- NodePort exposure
+- Ansible automated Kubernetes deployment
+- Persistent MySQL storage
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- Axios
+- Context API
+
+### Backend
+- Spring Boot 3 (Java 21)
+- Spring Security + JWT
+- JPA + Hibernate
+- MySQL
+
+### DevOps
+- Docker
+- Docker Hub
+- GitHub Actions
+- Kubernetes (Deployments, Services, PVC)
+- Ansible
+
+---
+
+## 📦 Project Structure
+
+```
 budget-planner-devops/
 │
 ├── ansible/
@@ -100,47 +134,73 @@ budget-planner-devops/
 │   └── vite.config.js
 │
 └── README.md
+```
 
+---
 
-🐳 Docker Setup
+## 🐳 Docker Setup
 
-Backend Image:
+### Backend Image
+
+```bash
 docker build -t kollijayanth2006/budget-backend:latest .
 docker push kollijayanth2006/budget-backend:latest
+```
 
-Frontend Image:
+### Frontend Image
+
+```bash
 npm run build
 docker build -t kollijayanth2006/budget-frontend:latest .
-docker push kollijiyanth2006/budget-frontend:latest
+docker push kollijayanth2006/budget-frontend:latest
+```
 
+---
 
-🤖 GitHub Actions CI/CD
+## 🤖 GitHub Actions CI/CD
 
 GitHub Actions automatically:
-Builds backend JAR
-Builds frontend assets
-Builds Docker images
-Pushes to Docker Hub
 
-Workflow files under:
+- Builds backend JAR
+- Builds frontend production assets
+- Builds Docker images
+- Pushes images to Docker Hub
+
+Workflow files are located under:
+
+```
 .github/workflows/
+```
 
+---
 
-☸ Kubernetes Deployment
-Apply all resources:
+## ☸ Kubernetes Deployment
+
+Apply all Kubernetes resources:
+
+```bash
 kubectl apply -f k8s/
+```
 
-Access Application:
-Frontend NodePort:
+### Access Application
+
+Frontend (NodePort):
+```
 http://localhost:30000
+```
 
-Backend NodePort:
-
+Backend API:
+```
 http://localhost:30001/api
+```
 
-🛠 Ansible Automated Deployment
+---
+
+## 🛠 Ansible Automated Deployment
+
 Run Ansible inside Docker:
 
+```bash
 docker run --rm -it \
   -v "%cd%:/workspace" \
   -v "%USERPROFILE%/.kube:/root/.kube" \
@@ -150,43 +210,75 @@ docker run --rm -it \
   curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
   chmod +x kubectl && mv kubectl /usr/local/bin/kubectl && \
   ansible-playbook -i hosts deploy.yml"
+```
 
+This command deploys:
 
-This runs:
-✔ MySQL Deployment
-✔ Backend Deployment
-✔ Backend Service
-✔ NodePort Service
-✔ Frontend Deployment
-✔ Frontend Service
+- MySQL Deployment
+- Backend Deployment
+- Backend Service
+- Backend NodePort
+- Frontend Deployment
+- Frontend Service
 
-🧪 Testing the API
+---
 
-Use Postman / Curl:
+## 🧪 API Testing
 
-Login
+### Login
+
+```http
 POST http://localhost:30001/api/auth/login
+```
+
+```json
 {
   "username": "jayanth",
   "password": "123456"
 }
+```
 
-Create Expense
+---
+
+### Create Expense
+
+```http
 POST /api/expenses
 Authorization: Bearer <token>
+```
 
-📸 Screenshots
-(Add screenshots later: login page, dashboard, Kubernetes pods, Docker Hub images, Ansible output etc.)
+---
 
-🎯 Status
-✔ Fully Working Full-Stack Application
-✔ Complete CI/CD Pipeline
-✔ Automated Deployment using Ansible
-✔ Docker + Kubernetes Production Ready
+## 📸 Screenshots
 
-📄 License
-MIT License — free to use for learning & portfolio.
+(Add screenshots for:)
 
-🙌 Author
-Kolli Jayanth Eswar
+- Login Page
+- Dashboard
+- Budget & Expense View
+- Kubernetes Pods
+- Docker Hub Images
+- Ansible Deployment Output
+
+---
+
+## 🎯 Project Status
+
+- Fully working full-stack application
+- Complete CI/CD pipeline
+- Automated Kubernetes deployment
+- Production-ready container architecture
+
+---
+
+## 📄 License
+
+MIT License — Free to use for learning and portfolio projects.
+
+---
+
+## 👨‍💻 Author
+
+**Kolli Jayanth Eswar**
+
 DevOps & Full-Stack Developer
